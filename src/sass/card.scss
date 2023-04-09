@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
 
-  width: min(100% - 2rem, 225px);
+  width: min(100% - 2rem, $card-max-width-small);
 
   font-family: $primary-font;
 
@@ -16,7 +16,7 @@
     margin-block: 0;
 
     text-decoration: none;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
 
     color: $neon-green;
 
@@ -27,7 +27,7 @@
   }
 
   &__subtitle {
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: $electric-blue;
   }
 
@@ -35,15 +35,16 @@
     display: flex;
     gap: 0.5rem;
     align-items: center;
+    flex-wrap: wrap;
 
-    font-size: 1.3rem;
+    font-size: 1rem;
   }
 
   &__image {
     display: block;
     object-fit: cover;
 
-    width: min(100%, 225px);
+    width: min(100%, $card-max-width-small);
 
     border-radius: $border-radius;
   }
@@ -75,19 +76,10 @@
 
 @media screen and (min-width: 950px) {
   .card {
-    flex-direction: row;
     width: min(100% - 2rem, $card-max-width-large);
 
-    &__title {
-      font-size: 1.1rem;
-    }
-
-    &__subtitle {
-      font-size: 1rem;
-    }
-
-    &__description {
-      font-size: 0.9rem;
+    &__image {
+      width: min(100%, $card-max-width-large);
     }
   }
 }

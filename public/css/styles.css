@@ -1,7 +1,7 @@
 .card {
   display: flex;
   flex-direction: column;
-  width: min(100% - 2rem, 225px);
+  width: min(100% - 2rem, 250px);
   font-family: "Roboto Mono", monospace;
   background-color: #3c3e44;
   color: #eee;
@@ -10,7 +10,7 @@
 .card__title {
   margin-block: 0;
   text-decoration: none;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   color: #39ff14;
 }
 .card__title:hover {
@@ -18,19 +18,20 @@
   cursor: pointer;
 }
 .card__subtitle {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #1db1f7;
 }
 .card__description {
   display: flex;
   gap: 0.5rem;
   align-items: center;
-  font-size: 1.3rem;
+  flex-wrap: wrap;
+  font-size: 1rem;
 }
 .card__image {
   display: block;
   object-fit: cover;
-  width: min(100%, 225px);
+  width: min(100%, 250px);
   border-radius: 0.3em;
 }
 .card__content {
@@ -55,17 +56,85 @@
 
 @media screen and (min-width: 950px) {
   .card {
+    width: min(100% - 2rem, 275px);
+  }
+  .card__image {
+    width: min(100%, 275px);
+  }
+}
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex-basis: 100%;
+  gap: 1em;
+}
+.pagination__buttons {
+  display: flex;
+  gap: 1em;
+}
+.pagination__button {
+  padding: 0.4em 0.8em;
+  border: 1px solid #3c3e44;
+  border-radius: 0.3em;
+  background-color: #3c3e44;
+  color: #eee;
+  font-weight: 400;
+  transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+.pagination__button:hover {
+  border-color: #1db1f7;
+  color: #1db1f7;
+  cursor: pointer;
+}
+.pagination__button[disabled] {
+  opacity: 0.5;
+}
+.pagination__button[disabled]:hover {
+  border-color: #3c3e44;
+  color: #eee;
+  cursor: default;
+}
+.pagination__button--active {
+  background-color: #1db1f7;
+}
+.pagination__button--active[disabled] {
+  opacity: 1;
+}
+.pagination__button::selection {
+  background-color: transparent;
+}
+.pagination__list {
+  display: flex;
+  gap: 1em;
+  padding: 0;
+  margin: 0;
+}
+.pagination__item {
+  list-style: none;
+  padding: 0;
+}
+.pagination__extra {
+  padding: 0.4em 0.8em;
+  font-weight: 400;
+  border: 1px solid #3c3e44;
+  border-radius: 0.3em;
+  background-color: #3c3e44;
+  color: #eee;
+}
+.pagination__extra--active {
+  border-color: #1db1f7;
+  color: #1db1f7;
+}
+.pagination__link {
+  text-decoration: none;
+}
+
+@media screen and (min-width: 768px) {
+  .pagination {
     flex-direction: row;
-    width: min(100% - 2rem, 550px);
-  }
-  .card__title {
-    font-size: 1.1rem;
-  }
-  .card__subtitle {
-    font-size: 1rem;
-  }
-  .card__description {
-    font-size: 0.9rem;
+    justify-content: space-between;
   }
 }
 body {
@@ -75,7 +144,7 @@ body {
 }
 
 .main {
-  width: min(100% - 2rem, (550px + 1em) * 3);
+  width: min(100% - 2rem, (275px + 1em) * 4);
   margin-inline: auto;
 }
 .main__content {

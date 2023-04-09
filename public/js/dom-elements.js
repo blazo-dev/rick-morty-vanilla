@@ -1,2 +1,2 @@
 import { $ } from "./utils/dom-elemets-selector.js";
-export const container = $("[data-container]");
+export const mainContainer = $("[data-container]");

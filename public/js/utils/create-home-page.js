@@ -8,40 +8,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 import { getCharacters } from "../api.js";
-import { container } from "../dom-elements.js";
-import { $ } from "./dom-elemets-selector.js";
-export const createHomePage = () => __awaiter(void 0, void 0, void 0, function* () {
-    const { results } = yield getCharacters();
-    const cardTemplate = $("#card-template");
-    const cardContainer = document.createDocumentFragment();
-    const { content } = cardTemplate;
-    container.innerHTML = "";
-    results.forEach((character) => {
-        const { name, image, species, status, location, origin, url, gender } = character;
-        const card = content.cloneNode(true);
-        const cardImage = card.querySelector("[data-image]");
-        const cardName = card.querySelector("[data-name]");
-        const cardSpecies = card.querySelector("[data-species]");
-        const cardStatus = card.querySelector("[data-status]");
-        const cardGender = card.querySelector("[data-gender]");
-        const cardLocation = card.querySelector("[data-location]");
-        const cardOrigin = card.querySelector("[data-origin]");
-        const cardIndicator = card.querySelector("[data-indicator]");
-        cardImage.src = image;
-        cardName.textContent = name;
-        cardName.href = url;
-        cardSpecies.textContent = species;
-        cardGender.textContent = gender;
-        cardStatus.textContent = status;
-        cardLocation.textContent = location.name;
-        cardOrigin.textContent = origin.name;
-        const statusColor = {
-            Alive: "card__indicator--alive",
-            Dead: "card__indicator--dead",
-            unknown: "card__indicator--unknown",
-        };
-        cardIndicator.classList.add(statusColor[status]);
-        cardContainer.appendChild(card);
-    });
-    container.appendChild(cardContainer);
+import { createCharacterList } from "../components/create-character-list.js";
+import { mainContainer } from "../dom-elements.js";
+import { createPagination } from "../components/create-pagination.js";
+export const createHomePage = (page = 1) => __awaiter(void 0, void 0, void 0, function* () {
+    const { info, results } = yield getCharacters(page);
+    mainContainer.innerHTML = "";
+    mainContainer.appendChild(createPagination(page, info.pages));
+    mainContainer.appendChild(createCharacterList(results));
 });

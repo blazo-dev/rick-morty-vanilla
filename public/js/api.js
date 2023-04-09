@@ -15,9 +15,9 @@ export function getCharacter(id) {
         return character;
     });
 }
-export function getCharacters() {
+export function getCharacters(page) {
     return __awaiter(this, void 0, void 0, function* () {
-        const response = yield fetch(`${env.API_URL}/character`);
+        const response = yield fetch(`${env.API_URL}/character?page=${page !== null && page !== void 0 ? page : Math.floor(Math.random() * 42) + 1}`);
         const characters = yield response.json();
         return characters;
     });

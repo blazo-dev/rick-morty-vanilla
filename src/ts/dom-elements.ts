@@ -1,3 +1,3 @@
 import { $ } from "./utils/dom-elemets-selector.js";
 
-export const container = $("[data-container]") as HTMLElement;
+export const mainContainer = $("[data-container]") as HTMLElement;

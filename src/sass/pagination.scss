@@ -1,0 +1,99 @@
+@use "./variables" as *;
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+
+  flex-basis: 100%;
+  gap: $gap;
+
+  &__buttons {
+    display: flex;
+    gap: $gap;
+  }
+
+  &__button {
+    padding: 0.4em 0.8em;
+
+    border: 1px solid $dark-gray;
+    border-radius: $border-radius;
+    background-color: $dark-gray;
+    color: $white;
+
+    font-weight: 400;
+
+    transition: border-color $animation-duration $animation-function,
+      color $animation-duration $animation-function;
+
+    &:hover {
+      border-color: $electric-blue;
+      color: $electric-blue;
+      cursor: pointer;
+    }
+
+    &[disabled] {
+      opacity: 0.5;
+
+      &:hover {
+        border-color: $dark-gray;
+        color: $white;
+        cursor: default;
+      }
+    }
+
+    &--active {
+      background-color: $electric-blue;
+
+      &[disabled] {
+        opacity: 1;
+      }
+    }
+
+    &::selection {
+      background-color: transparent;
+    }
+  }
+
+  &__list {
+    display: flex;
+    gap: $gap;
+
+    padding: 0;
+    margin: 0;
+  }
+
+  &__item {
+    list-style: none;
+    padding: 0;
+  }
+
+  &__extra {
+    padding: 0.4em 0.8em;
+
+    font-weight: 400;
+
+    border: 1px solid $dark-gray;
+    border-radius: $border-radius;
+
+    background-color: $dark-gray;
+    color: $white;
+
+    &--active {
+      border-color: $electric-blue;
+      color: $electric-blue;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .pagination {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}

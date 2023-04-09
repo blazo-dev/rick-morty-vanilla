@@ -1,5 +1,6 @@
 @use "./variables" as *;
 @use "./card" as *;
+@use "./pagination" as *;
 
 body {
   background-color: $bg-dark;
@@ -8,7 +9,7 @@ body {
 }
 
 .main {
-  width: min(100% - 2rem, calc(($card-max-width-large + $gap) * 3));
+  width: min(100% - 2rem, calc(($card-max-width-large + $gap) * 4));
   margin-inline: auto;
 
   &__content {
@@ -16,7 +17,7 @@ body {
     flex-wrap: wrap;
     justify-content: space-evenly;
     gap: $gap;
-    
+
     padding-block: 1em;
   }
 }
