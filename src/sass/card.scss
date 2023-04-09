@@ -14,6 +14,10 @@
 
   &__title {
     margin-block: 0;
+
+    text-decoration: none;
+    font-size: 1.3rem;
+
     color: $neon-green;
 
     &:hover {
@@ -28,6 +32,10 @@
   }
 
   &__description {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+
     font-size: 1.3rem;
   }
 
@@ -38,11 +46,30 @@
     width: min(100%, 225px);
 
     border-radius: $border-radius;
-    cursor: pointer;
   }
 
   &__content {
     padding: 1em;
+  }
+
+  &__indicator {
+    display: block;
+    width: 10px;
+    height: 10px;
+    background-color: $white;
+    border-radius: 50%;
+
+    &--alive {
+      background-color: $neon-green;
+    }
+
+    &--dead {
+      background-color: $intense-red;
+    }
+
+    &--unknown {
+      background-color: $light-gray;
+    }
   }
 }
 
@@ -50,5 +77,17 @@
   .card {
     flex-direction: row;
     width: min(100% - 2rem, $card-max-width-large);
+
+    &__title {
+      font-size: 1.1rem;
+    }
+
+    &__subtitle {
+      font-size: 1rem;
+    }
+
+    &__description {
+      font-size: 0.9rem;
+    }
   }
 }

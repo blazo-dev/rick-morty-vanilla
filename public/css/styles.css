@@ -2,13 +2,15 @@
   display: flex;
   flex-direction: column;
   width: min(100% - 2rem, 225px);
-  font-family: "Delicious Handrawn", cursive;
+  font-family: "Roboto Mono", monospace;
   background-color: #3c3e44;
   color: #eee;
   border-radius: 0.3em;
 }
 .card__title {
   margin-block: 0;
+  text-decoration: none;
+  font-size: 1.3rem;
   color: #39ff14;
 }
 .card__title:hover {
@@ -20,6 +22,9 @@
   color: #1db1f7;
 }
 .card__description {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
   font-size: 1.3rem;
 }
 .card__image {
@@ -27,10 +32,25 @@
   object-fit: cover;
   width: min(100%, 225px);
   border-radius: 0.3em;
-  cursor: pointer;
 }
 .card__content {
   padding: 1em;
+}
+.card__indicator {
+  display: block;
+  width: 10px;
+  height: 10px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+.card__indicator--alive {
+  background-color: #39ff14;
+}
+.card__indicator--dead {
+  background-color: #ff0000;
+}
+.card__indicator--unknown {
+  background-color: #ddd;
 }
 
 @media screen and (min-width: 950px) {
@@ -38,11 +58,20 @@
     flex-direction: row;
     width: min(100% - 2rem, 550px);
   }
+  .card__title {
+    font-size: 1.1rem;
+  }
+  .card__subtitle {
+    font-size: 1rem;
+  }
+  .card__description {
+    font-size: 0.9rem;
+  }
 }
 body {
   background-color: #272b33;
   color: #eee;
-  font-family: "Delicious Handrawn", cursive;
+  font-family: "Roboto Mono", monospace;
 }
 
 .main {
