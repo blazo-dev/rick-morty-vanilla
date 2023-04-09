@@ -1,0 +1,59 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  width: min(100% - 2rem, 225px);
+  font-family: "Delicious Handrawn", cursive;
+  background-color: #3c3e44;
+  color: #eee;
+  border-radius: 0.3em;
+}
+.card__title {
+  margin-block: 0;
+  color: #39ff14;
+}
+.card__title:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.card__subtitle {
+  font-size: 1rem;
+  color: #1db1f7;
+}
+.card__description {
+  font-size: 1.3rem;
+}
+.card__image {
+  display: block;
+  object-fit: cover;
+  width: min(100%, 225px);
+  border-radius: 0.3em;
+  cursor: pointer;
+}
+.card__content {
+  padding: 1em;
+}
+
+@media screen and (min-width: 950px) {
+  .card {
+    flex-direction: row;
+    width: min(100% - 2rem, 450px);
+  }
+}
+body {
+  background-color: #272b33;
+  color: #eee;
+  font-family: "Delicious Handrawn", cursive;
+}
+
+.main {
+  width: min(100% - 2rem, (450px + 1em) * 3);
+  margin-inline: auto;
+}
+.main__content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 1em;
+}
+
+/*# sourceMappingURL=styles.css.map */

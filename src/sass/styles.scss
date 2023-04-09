@@ -1,0 +1,20 @@
+@use "./variables" as *;
+@use "./card" as *;
+
+body {
+  background-color: $bg-dark;
+  color: $white;
+  font-family: $primary-font;
+}
+
+.main {
+  width: min(100% - 2rem, calc(($card-max-width-large + $gap) * 3));
+  margin-inline: auto;
+
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: $gap;
+  }
+}
