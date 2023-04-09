@@ -4,7 +4,7 @@ import { Character, Characters } from "../interfaces/character.interface.js";
 import { $ } from "./dom-elemets-selector.js";
 
 export const createHomePage = async () => {
-  const { info, results }: Characters = await getCharacters();
+  const { results }: Characters = await getCharacters();
   const cardTemplate = $("#card-template") as HTMLTemplateElement;
   const cardContainer: DocumentFragment = document.createDocumentFragment();
   const { content } = cardTemplate;
@@ -12,15 +12,15 @@ export const createHomePage = async () => {
   container.innerHTML = "";
 
   results.forEach((character: Character) => {
-    const { id, name, image, species, status } = character;
+    const { name, image, species, status } = character;
     const card = content.cloneNode(true) as HTMLElement;
-    const cardImage = card.querySelector(".card__image") as HTMLImageElement;
-    const cardName = card.querySelector(".card__title") as HTMLHeadingElement;
+    const cardImage = card.querySelector("[data-image]") as HTMLImageElement;
+    const cardName = card.querySelector("[data-name]") as HTMLHeadingElement;
     const cardSpecies = card.querySelector(
-      ".card__species"
+      "[data-species]"
     ) as HTMLParagraphElement;
     const cardStatus = card.querySelector(
-      ".card__status"
+      "[data-status]"
     ) as HTMLParagraphElement;
 
     cardImage.src = image;
@@ -32,5 +32,4 @@ export const createHomePage = async () => {
   });
 
   container.appendChild(cardContainer);
-  console.log("createHomePage");
 };

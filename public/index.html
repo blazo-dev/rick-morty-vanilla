@@ -26,14 +26,20 @@
           class="card__image"
           src="https://rickandmortyapi.com/api/character/avatar/1.jpeg"
           alt="Character image"
+          data-image
         />
         <div class="card__content">
-          <h2 class="card__title">Rick Sanchez</h2>
-          <p class="card__description">Alive - Human - Male</p>
+          <h2 class="card__title" data-name>Rick Sanchez</h2>
+          <p class="card__description">
+            <span data-status>Alive</span> - <span data-species>Human</span> -
+            <span data-gender>Male</span>
+          </p>
           <h2 class="card__subtitle">Last known location:</h2>
-          <p class="card__description" data-last-location>Alive - Human - Male</p>
+          <p class="card__description" data-location>Alive - Human - Male</p>
           <h2 class="card__subtitle">First seen in:</h2>
-          <p class="card__description">Earth (C-137) - Citadel of Ricks</p>
+          <p class="card__description" data-origin>
+            Earth (C-137) - Citadel of Ricks
+          </p>
         </div>
       </div>
     </template>

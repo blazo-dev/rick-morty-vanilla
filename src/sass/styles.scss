@@ -16,5 +16,7 @@ body {
     flex-wrap: wrap;
     justify-content: space-evenly;
     gap: $gap;
+    
+    padding-block: 1em;
   }
 }
