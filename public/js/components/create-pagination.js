@@ -1,4 +1,4 @@
-import { createHomePage } from "../utils/create-home-page.js";
+import { createHomePage } from "./create-home-page.js";
 import { $ } from "../utils/dom-elemets-selector.js";
 export const createPagination = (page, pages) => {
     const paginationTemplate = $("#pagination-template");

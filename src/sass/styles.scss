@@ -1,6 +1,7 @@
 @use "./variables" as *;
 @use "./card" as *;
 @use "./pagination" as *;
+@use "./character-page" as *;
 
 body {
   background-color: $bg-dark;
@@ -12,6 +13,16 @@ body {
   width: min(100% - 2rem, calc(($card-max-width-large + $gap) * 4));
   margin-inline: auto;
 
+  &__title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: $gap;
+
+    width: 100%;
+  }
+
   &__content {
     display: flex;
     flex-wrap: wrap;
@@ -19,5 +30,39 @@ body {
     gap: $gap;
 
     padding-block: 1em;
+  }
+
+  &__button {
+    background-color: transparent;
+    border: none;
+    color: $white;
+
+    transition: color $animation-duration $animation-function;
+
+    &:hover {
+      cursor: pointer;
+      color: $electric-blue;
+    }
+
+    &[disabled] {
+      color: $electric-blue;
+
+      &:hover {
+        cursor: default;
+      }
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+@media screen and (min-width: 468px) {
+  .main {
+    &__title {
+      flex-direction: row;
+      justify-content: space-between;
+    }
   }
 }

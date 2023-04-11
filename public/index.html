@@ -1,86 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Rick and Morty</title>
-    <link rel="shortcut icon" href="./img/logo.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="./css/normalize.css" />
-    <link rel="stylesheet" href="./css/styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="shortcut icon" href="./img/logo.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="./css/normalize.css"/>
+    <link rel="stylesheet" href="./css/styles.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200;400;500;700&display=swap"
-      rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200;400;500;700&display=swap"
+            rel="stylesheet"
     />
-  </head>
-  <body>
-    <main class="main">
-      <h1 class="main__title">Rick and Morty</h1>
-      <div class="main__content" data-container></div>
-    </main>
-    <template id="card-template">
-      <div class="card">
+    <script
+            src="https://kit.fontawesome.com/c60c05e512.js"
+            crossorigin="anonymous"
+    ></script>
+</head>
+<body>
+<main class="main">
+    <h1 class="main__title">
+        Rick and Morty
+        <button
+                data-home-button
+                class="main__button fa-solid fa-house"
+        ></button>
+    </h1>
+    <div class="main__content" data-container></div>
+</main>
+<template id="character-page-template">
+    <div class="character__content">
         <img
-          class="card__image"
-          src="https://rickandmortyapi.com/api/character/avatar/1.jpeg"
-          alt="Character image"
-          data-image
+                src="https://rickandmortyapi.com/api/character/avatar/1.jpeg"
+                alt=""
+                class="character__image"
+                data-image
+        />
+        <div class="character__text">
+            <h2 class="character__title" data-name>Rick Sanchez</h2>
+            <p class="character__description">
+                Status: <span data-status></span
+            ><span class="indicator" data-indicator></span>
+            </p>
+            <p class="character__description">
+                Specie: <span data-species></span>
+            </p>
+            <p class="character__description">
+                Gender: <span data-gender></span>
+            </p>
+            <p class="character__description">
+                Origin: <span data-origin></span>
+            </p>
+            <p class="character__description">
+                Location: <span data-location></span>
+            </p>
+        </div>
+    </div>
+    <h2 class="character__subtitle">Episodes</h2>
+    <ol class="episodes" data-episodes>
+        <li class="episodes__item" data-episode></li>
+    </ol>
+</template>
+<template id="card-template">
+    <div class="card">
+        <img
+                class="card__image"
+                src="https://rickandmortyapi.com/api/character/avatar/1.jpeg"
+                alt="Character image"
+                data-image
         />
         <div class="card__content">
-          <a class="card__title" href="" data-name>Rick Sanchez</a>
-          <p class="card__description">
-            <span class="card__indicator" data-indicator></span
-            ><span data-status>Alive</span> - <span data-species>Human</span> -
-            <span data-gender>Male</span>
-          </p>
-          <h2 class="card__subtitle">Last known location:</h2>
-          <p class="card__description" data-location>
-            Earth (C-137) - Citadel of Ricks
-          </p>
-          <h2 class="card__subtitle">First seen in:</h2>
-          <p class="card__description" data-origin>
-            Earth (C-137) - Citadel of Ricks
-          </p>
+            <a class="card__title" href="" data-name>Rick Sanchez</a>
+            <p class="card__description">
+                <span class="indicator" data-indicator></span>
+                <span data-status>Alive</span> - <span data-species>Human</span> -
+                <span data-gender>Male</span>
+            </p>
+            <h2 class="card__subtitle">Last known location:</h2>
+            <p class="card__description" data-location>
+                Earth (C-137) - Citadel of Ricks
+            </p>
+            <h2 class="card__subtitle">First seen in:</h2>
+            <p class="card__description" data-origin>
+                Earth (C-137) - Citadel of Ricks
+            </p>
         </div>
-      </div>
-    </template>
-    <template id="pagination-template">
-      <nav class="pagination" role="navigation">
+    </div>
+</template>
+<template id="pagination-template">
+    <nav class="pagination" role="navigation">
         <div class="pagination__buttons">
-          <button class="pagination__button" data-pagination-prev>
-            Previous
-          </button>
-          <button class="pagination__button" data-pagination-next>
-            Next page
-          </button>
+            <button class="pagination__button" data-pagination-prev>
+                Previous
+            </button>
+            <button class="pagination__button" data-pagination-next>
+                Next page
+            </button>
         </div>
         <span
-          class="pagination__extra pagination__extra--active"
-          data-pagination-page
+                class="pagination__extra pagination__extra--active"
+                data-pagination-page
         ></span>
         <ul class="pagination__list">
-          <li class="pagination__item">
-            <button
-              class="pagination__button pagination__link"
-              data-pagination-first-page
-            >
-              1
-            </button>
-          </li>
-          <span class="pagination__extra">...</span>
-          <li class="pagination__item">
-            <button
-              class="pagination__button pagination__link"
-              data-pagination-last-page
-            >
-              3
-            </button>
-          </li>
+            <li class="pagination__item">
+                <button
+                        class="pagination__button pagination__link"
+                        data-pagination-first-page
+                >
+                    1
+                </button>
+            </li>
+            <span class="pagination__extra">...</span>
+            <li class="pagination__item">
+                <button
+                        class="pagination__button pagination__link"
+                        data-pagination-last-page
+                >
+                    3
+                </button>
+            </li>
         </ul>
-      </nav>
-    </template>
-    <script type="module" src="./js/app.js"></script>
-  </body>
+    </nav>
+</template>
+<script type="module" src="./js/app.js"></script>
+</body>
 </html>

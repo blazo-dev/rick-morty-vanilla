@@ -8,11 +8,16 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 import { getCharacters } from "../api.js";
-import { createCharacterList } from "../components/create-character-list.js";
-import { mainContainer } from "../dom-elements.js";
-import { createPagination } from "../components/create-pagination.js";
+import { createCharacterList } from "./create-character-list.js";
+import { homeButton, mainContainer } from "../dom-elements.js";
+import { createPagination } from "./create-pagination.js";
 export const createHomePage = (page = 1) => __awaiter(void 0, void 0, void 0, function* () {
     const { info, results } = yield getCharacters(page);
+    homeButton.addEventListener("click", () => {
+        homeButton.disabled = true;
+        createHomePage();
+    });
+    homeButton.disabled = true;
     mainContainer.innerHTML = "";
     mainContainer.appendChild(createPagination(page, info.pages));
     mainContainer.appendChild(createCharacterList(results));

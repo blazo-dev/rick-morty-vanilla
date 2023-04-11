@@ -1,5 +1,7 @@
+import { mainContainer } from "../dom-elements.js";
 import { Character } from "../interfaces/character.interface";
 import { $ } from "../utils/dom-elemets-selector.js";
+import { createCharacterPage } from "./create-character-page.js";
 
 export const createCharacterCard = (character: Character): HTMLElement => {
   const cardTemplate = $("#card-template") as HTMLTemplateElement;
@@ -27,19 +29,26 @@ export const createCharacterCard = (character: Character): HTMLElement => {
   cardGender.textContent = gender;
   cardImage.src = image;
   cardLocation.textContent = location.name;
-  cardName.href = url;
   cardName.textContent = name;
   cardOrigin.textContent = origin.name;
   cardSpecies.textContent = species;
   cardStatus.textContent = status;
 
   const statusClass = {
-    Alive: "card__indicator--alive",
-    Dead: "card__indicator--dead",
-    unknown: "card__indicator--unknown",
+    Alive: "indicator--alive",
+    Dead: "indicator--dead",
+    unknown: "indicator--unknown",
   };
 
   cardIndicator.classList.add(statusClass[status]);
+
+  cardName.addEventListener("click", (e) => {
+    e.preventDefault();
+    const characterPage = createCharacterPage(character);
+    mainContainer.innerHTML = "";
+
+    mainContainer.appendChild(characterPage);
+  });
 
   return card;
 };

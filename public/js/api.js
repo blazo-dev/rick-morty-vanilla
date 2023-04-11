@@ -22,3 +22,10 @@ export function getCharacters(page) {
         return characters;
     });
 }
+export function getEpisode(url) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const response = yield fetch(url);
+        const episode = yield response.json();
+        return episode;
+    });
+}

@@ -1,4 +1,5 @@
 @use "./variables" as *;
+@use "./mixins" as *;
 
 .card {
   display: flex;
@@ -32,11 +33,7 @@
   }
 
   &__description {
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-    flex-wrap: wrap;
-
+    @include flex-container(row, wrap, flex-start, center, 0.5em);
     font-size: 1rem;
   }
 
@@ -52,25 +49,25 @@
   &__content {
     padding: 1em;
   }
+}
 
-  &__indicator {
-    display: block;
-    width: 10px;
-    height: 10px;
-    background-color: $white;
-    border-radius: 50%;
+.indicator {
+  display: block;
+  width: 10px;
+  height: 10px;
+  background-color: $white;
+  border-radius: 50%;
 
-    &--alive {
-      background-color: $neon-green;
-    }
+  &--alive {
+    background-color: $neon-green;
+  }
 
-    &--dead {
-      background-color: $intense-red;
-    }
+  &--dead {
+    background-color: $intense-red;
+  }
 
-    &--unknown {
-      background-color: $light-gray;
-    }
+  &--unknown {
+    background-color: $light-gray;
   }
 }
 

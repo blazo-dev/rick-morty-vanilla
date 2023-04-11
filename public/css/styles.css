@@ -23,9 +23,11 @@
 }
 .card__description {
   display: flex;
-  gap: 0.5rem;
-  align-items: center;
+  flex-direction: row;
   flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5em;
   font-size: 1rem;
 }
 .card__image {
@@ -37,20 +39,21 @@
 .card__content {
   padding: 1em;
 }
-.card__indicator {
+
+.indicator {
   display: block;
   width: 10px;
   height: 10px;
   background-color: #eee;
   border-radius: 50%;
 }
-.card__indicator--alive {
+.indicator--alive {
   background-color: #39ff14;
 }
-.card__indicator--dead {
+.indicator--dead {
   background-color: #ff0000;
 }
-.card__indicator--unknown {
+.indicator--unknown {
   background-color: #ddd;
 }
 
@@ -137,6 +140,55 @@
     justify-content: space-between;
   }
 }
+.character__title {
+  margin-block: 0;
+  flex-basis: 100%;
+}
+.character__subtitle {
+  text-align: center;
+  flex-basis: 100%;
+}
+.character__content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+.character__image {
+  display: block;
+  border-radius: 0.3em;
+}
+.character__description {
+  flex-basis: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1em;
+}
+
+.episodes {
+  flex-basis: 100%;
+  max-height: 10rem;
+  overflow-y: auto;
+}
+.episodes__item {
+  color: #1db1f7;
+  text-decoration: none;
+}
+.episodes__item:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .episodes {
+    max-height: 25rem;
+  }
+}
 body {
   background-color: #272b33;
   color: #eee;
@@ -147,12 +199,46 @@ body {
   width: min(100% - 2rem, (275px + 1em) * 4);
   margin-inline: auto;
 }
+.main__title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1em;
+  width: 100%;
+}
 .main__content {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
   gap: 1em;
   padding-block: 1em;
+}
+.main__button {
+  background-color: transparent;
+  border: none;
+  color: #eee;
+  transition: color 0.2s ease-in-out;
+}
+.main__button:hover {
+  cursor: pointer;
+  color: #1db1f7;
+}
+.main__button[disabled] {
+  color: #1db1f7;
+}
+.main__button[disabled]:hover {
+  cursor: default;
+}
+.main__button:focus {
+  outline: none;
+}
+
+@media screen and (min-width: 468px) {
+  .main__title {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */
