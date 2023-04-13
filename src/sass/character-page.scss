@@ -33,6 +33,23 @@
   max-height: calc(1rem * 10);
   overflow-y: auto;
 
+  scrollbar-width: thin;
+  scrollbar-color: $electric-blue $dark-gray;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $dark-gray;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    width: 5px;
+    background-color: $electric-blue;
+    border-radius: 5px;
+  }
+
   &__item {
     color: $electric-blue;
     text-decoration: none;
