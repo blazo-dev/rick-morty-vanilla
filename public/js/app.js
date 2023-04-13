@@ -1,4 +1,4 @@
-import { createHomePage } from "./utils/create-home-page.js";
+import { createHomePage } from "./components/create-home-page.js";
 function main() {
     createHomePage();
 }

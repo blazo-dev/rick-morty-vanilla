@@ -1,10 +1,11 @@
 @use "./variables" as *;
+@use "./mixins" as *;
 
 .card {
   display: flex;
   flex-direction: column;
 
-  width: min(100% - 2rem, 225px);
+  width: min(100% - 2rem, $card-max-width-small);
 
   font-family: $primary-font;
 
@@ -16,7 +17,7 @@
     margin-block: 0;
 
     text-decoration: none;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
 
     color: $neon-green;
 
@@ -27,23 +28,20 @@
   }
 
   &__subtitle {
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: $electric-blue;
   }
 
   &__description {
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-
-    font-size: 1.3rem;
+    @include flex-container(row, wrap, flex-start, center, 0.5em);
+    font-size: 1rem;
   }
 
   &__image {
     display: block;
     object-fit: cover;
 
-    width: min(100%, 225px);
+    width: min(100%, $card-max-width-small);
 
     border-radius: $border-radius;
   }
@@ -51,43 +49,34 @@
   &__content {
     padding: 1em;
   }
+}
 
-  &__indicator {
-    display: block;
-    width: 10px;
-    height: 10px;
-    background-color: $white;
-    border-radius: 50%;
+.indicator {
+  display: block;
+  width: 10px;
+  height: 10px;
+  background-color: $white;
+  border-radius: 50%;
 
-    &--alive {
-      background-color: $neon-green;
-    }
+  &--alive {
+    background-color: $neon-green;
+  }
 
-    &--dead {
-      background-color: $intense-red;
-    }
+  &--dead {
+    background-color: $intense-red;
+  }
 
-    &--unknown {
-      background-color: $light-gray;
-    }
+  &--unknown {
+    background-color: $light-gray;
   }
 }
 
 @media screen and (min-width: 950px) {
   .card {
-    flex-direction: row;
     width: min(100% - 2rem, $card-max-width-large);
 
-    &__title {
-      font-size: 1.1rem;
-    }
-
-    &__subtitle {
-      font-size: 1rem;
-    }
-
-    &__description {
-      font-size: 0.9rem;
+    &__image {
+      width: min(100%, $card-max-width-large);
     }
   }
 }

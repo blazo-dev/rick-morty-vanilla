@@ -1,0 +1,68 @@
+@use "./variables" as *;
+@use "./mixins" as *;
+
+.character {
+  &__title {
+    margin-block: 0;
+    flex-basis: 100%;
+  }
+
+  &__subtitle {
+    text-align: center;
+    flex-basis: 100%;
+  }
+
+  &__content {
+    @include flex-container(row, wrap, center, center, $gap);
+  }
+
+  &__image {
+    display: block;
+    border-radius: $border-radius;
+  }
+
+  &__description {
+    flex-basis: 100%;
+    @include flex-container(row, wrap, flex-start, center, $gap);
+
+  }
+}
+
+.episodes {
+  flex-basis: 100%;
+  max-height: calc(1rem * 10);
+  overflow-y: auto;
+
+  scrollbar-width: thin;
+  scrollbar-color: $electric-blue $dark-gray;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $dark-gray;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    width: 5px;
+    background-color: $electric-blue;
+    border-radius: 5px;
+  }
+
+  &__item {
+    color: $electric-blue;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .episodes {
+    max-height: calc(1rem * 25);
+  }
+}
