@@ -2,6 +2,7 @@
 @use "./card" as *;
 @use "./pagination" as *;
 @use "./character-page" as *;
+@use "./search-bar" as *;
 
 body {
   background-color: $bg-dark;

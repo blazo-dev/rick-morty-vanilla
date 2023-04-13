@@ -1,0 +1,51 @@
+@use "./variables" as *;
+
+.main__search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+
+
+  &-input {
+    flex-grow: 3;
+    padding: .5em .8em;
+
+    background-color: $dark-gray;
+    color: $light-gray;
+
+    font-weight: 500;
+
+    border: none;
+    border-top-left-radius: .3em;
+    border-bottom-left-radius: .3em;
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 5px 1px $dark-gray;
+    }
+  }
+
+  &-button {
+    height: 100%;
+    padding-inline: .8em;
+
+    background-color: $electric-blue;
+    color: $light-gray;
+    border: none;
+    cursor: pointer;
+    transition: box-shadow $animation-duration $animation-function;
+
+    border-top-right-radius: .3em;
+    border-bottom-right-radius: .3em;
+
+    &:hover {
+      box-shadow: 0 0 5px 1px $electric-blue;
+    }
+  }
+
+  .fas {
+    font-size: 16px;
+  }
+}
